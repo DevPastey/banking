@@ -1,8 +1,9 @@
-import React from 'react'
+
+
 
 const Login = () => {
   return (
-    <div>
+    <div className='bg-amber-700 text-7xl'>
       LoginPage
     </div>
   )
