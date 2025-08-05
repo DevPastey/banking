@@ -92,13 +92,8 @@ export function formUrlQuery({ params, key, value }: UrlQueryParams) {
 
   currentUrl[key] = value;
 
-  return qs.stringifyUrl(
-    {
-      url: window.location.pathname,
-      query: currentUrl,
-    },
-    { skipNull: true }
-  );
+  const queryString = qs.stringify(currentUrl, { skipNull: true });
+  return `${window.location.pathname}${queryString ? `?${queryString}` : ""}`;
 }
 
 export function getAccountTypeColors(type: AccountTypes) {
