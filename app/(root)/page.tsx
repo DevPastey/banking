@@ -1,12 +1,16 @@
-import HeaderBox from "../components/ui/HeaderBox"
-import TotalBalanceBox from "../components/ui/TotalBalanceBox"
+import HeaderBox from "../components/HeaderBox"
+import RightSidebar from "../components/RightSidebar"
+import TotalBalanceBox from "../components/TotalBalanceBox"
 
 const Home = () => {
-  const loggedIn = {firstName: "DevPastey"}
+  const loggedIn = {firstName: "DevPastey", lastName: 'Timi',
+    email: 'devpastey@hotmail.com'
+  }
+
   return (
-    <div className='flex w-full flex-row max-xl:max-h-screen max-xl:overflow-y-scroll no-scrollbar'>
-      <div className=" no-scrollbar flex w-full flex-1 flex-col gap-8 px-5 sm:px-8 py-7 lg:py-12 xl:max-h-screen xl:overflow-y-scroll">
-        <header className="flex flex-col justify-between gap-8">
+    <section className='home no-scrollbar'>
+      <div className=" home-content no-scrollbar">
+        <header className="home-header">
           <HeaderBox 
           type="greeting"
           title="Welcome"
@@ -19,8 +23,16 @@ const Home = () => {
             totalCurrentBalance={1250.35}
           />
         </header>
+
+        RECENT TRANSACTIONS
       </div>
-    </div>
+
+      <RightSidebar
+        user={loggedIn}
+        transactions={[]}
+        banks={[{currentBalance: 123.50}, {currentBalance: 1250.35}]}
+       />
+    </section>
   )
 }
 
