@@ -1,10 +1,11 @@
+import AuthForm from "@/app/components/AuthForm"
 
 
 
 const Login = () => {
   return (
-    <div className='bg-amber-700 text-7xl'>
-      LoginPage
+    <div className='flex items-center justify-center size-full max-sm:px-6'>
+      <AuthForm type="sign-in"/>
     </div>
   )
 }

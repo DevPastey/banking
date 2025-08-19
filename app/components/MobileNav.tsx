@@ -19,6 +19,7 @@ import {
   SheetTrigger,
   SheetClose,
 } from "@/app/components/ui/sheet"
+import Footer from "./Footer";
 
 
 
@@ -113,6 +114,8 @@ import {
                 )
               })}
             </nav>
+
+            <Footer user={user} type="mobile" />
           </div>
         </SheetContent>
       </Sheet>

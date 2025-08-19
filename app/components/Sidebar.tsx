@@ -4,6 +4,7 @@ import { sidebarLinks } from '@/constants';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import Footer from './Footer';
 //import HomeIcon from '@/src/icons/home.svg';
 
 
@@ -21,7 +22,7 @@ const Sidebar = ({user}: SiderbarProps) => {
           className='size-[24px] max-xl:size-[24px]' />
           <h1 className='side-logo font-ibm-plex-serif'>Horizon</h1>
         </Link>
-        <p>Welcome {user.firstName}</p>
+        <p className='text-black'>Welcome {user?.name ?? "Guest"}</p>
 
       {sidebarLinks.map((link) => {
       const isActive = pathname === link.route || pathname.startsWith(`${link.route}`) && link.route !== '/';
@@ -49,7 +50,7 @@ const Sidebar = ({user}: SiderbarProps) => {
         
       </nav>
 
-      FOOTER
+      <Footer user={user} />
     </section>
   )
 }

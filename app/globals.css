@@ -1,12 +1,10 @@
 
 @import "tailwindcss";
 
-@custom-variant dark (&:is(.dark *));
-
-@theme {
-/* custom color */
-  --color-bankGradient: #0179FE;
-  --color-bank-gradient: #2e5fef;
+/* Hide Next.js dev watermark in Next.js 14+ */
+#nextjs__container,
+[class*="nextjs-"] {
+  display: none !important;
 }
 
 
@@ -14,7 +12,14 @@
 
 
 
- 
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+/* custom color */
+  --color-bankGradient: #0179FE;
+  --color-bank-gradient: #2e5fef;
+  --color-sky-1: #F3F9FF;
+}
 
 
 
@@ -43,56 +48,115 @@
   }
 
 
+  .auth-form {
+    @apply flex min-h-screen w-full max-w-[420px] flex-col justify-center gap-5 py-10 md:gap-8;
+  }
+
   .banks {
-    @apply flex flex-col justify-between gap-8 px-6 py-8
+    @apply flex flex-col justify-between gap-8 px-6 py-8;
   }
 
   .bank-card {
-    @apply relative flex h-[190px] w-full max-w-[320px] justify-between rounded-[20px]  border border-white backdrop-blur-[6px]
+    @apply relative flex h-[190px] w-full max-w-[320px] justify-between rounded-[20px]  border border-white backdrop-blur-[6px];
   }
 
   .bank-card-content {
-    @apply relative z-10 flex size-full max-w-[228px] flex-col justify-between rounded-l-[20px] bg-bankGradient px-5 pb-4 pt-5;
+    @apply relative z-10 flex size-full max-w-[228px] flex-col justify-between rounded-l-[20px] bg-gradient-to-r from-bank-gradient via-blue-500 to-blue-400 px-5 pb-4 pt-5;
   }
   
   .bank-card-icon {
     @apply flex size-full flex-1 flex-col items-end justify-between rounded-r-[20px] bg-bank-gradient bg-cover bg-center bg-no-repeat py-5 pr-5;
   }
 
-  .header-2 {
-    @apply text-[18px] font-semibold text-gray-900
+  .auth-asset {
+    @apply flex h-screen w-full sticky top-0 items-center justify-end max-lg:hidden;
   }
 
+  .form-btn {
+    @apply text-[16px] cursor-pointer rounded-lg border border-bankGradient  font-semibold text-white shadow-md;
+  }
+
+  .form-item {
+    @apply flex flex-col gap-1.5;
+  }
+
+  .form-label {
+    @apply text-[14px] w-full max-w-[280px] font-medium text-gray-700;
+  }
+
+  .form-link {
+    @apply text-[14px] cursor-pointer font-medium text-bank-gradient;
+  }
+
+  .form-message {
+    @apply text-[12px] text-red-500;
+  }
+
+  .header-2 {
+    @apply text-[18px] font-semibold text-gray-900;
+  }
+
+    /* Footer */
+  .footer {
+    @apply flex cursor-pointer items-center justify-between gap-2 py-6;
+  }
+
+  .footer-name {
+    @apply flex size-10 items-center justify-center rounded-full bg-gray-200 max-xl:hidden;
+  }
+
+  .footer-email {
+    @apply flex flex-1 flex-col justify-center max-xl:hidden;
+  }
+
+  .footer-name-mobile {
+    @apply flex items-center justify-center rounded-full bg-gray-200;
+  }
+
+  .footer-email-mobile {
+    @apply flex flex-1 flex-col justify-center;
+  }
+
+  .footer-image {
+    @apply relative size-5 max-xl:w-full max-xl:flex max-xl:justify-center max-xl:items-center;
+  }
+
+  .footer-image-mobile {
+    @apply relative size-5;
+  }
+
+
+
   .home {
-    @apply flex w-full flex-row max-xl:max-h-screen max-xl:overflow-y-scroll
+    @apply flex w-full flex-row max-xl:max-h-screen max-xl:overflow-y-scroll;
   }
 
   .home-content {
-    @apply flex w-full flex-1 flex-col gap-8 px-5 sm:px-8 py-7 lg:py-12 xl:max-h-screen xl:overflow-y-scroll
+    @apply flex w-full flex-1 flex-col gap-8 px-5 sm:px-8 py-7 lg:py-12 xl:max-h-screen xl:overflow-y-scroll;
   }
 
   .home-header {
-    @apply flex flex-col justify-between gap-8
+    @apply flex flex-col justify-between gap-8;
   }
 
   .profile {
-    @apply relative flex px-6 max-xl:justify-center
+    @apply relative flex px-6 max-xl:justify-center;
   }
 
   .profile-banner {
-    @apply h-[120px] w-full bg-cover bg-no-repeat bg-[url(/icons/gradient-mesh.svg)] 
+    @apply h-[120px] w-full bg-cover bg-no-repeat bg-[url(/icons/gradient-mesh.svg)];
   }
 
   .profile-details {
-    @apply flex flex-col pt-24
+    @apply flex flex-col pt-24;
   }
 
   .profile-img {
-    @apply flex justify-center items-center absolute -top-8 size-24 rounded-full bg-gray-100 border-8 border-white p-2 shadow-lg
+    @apply flex justify-center items-center absolute -top-8 size-24 rounded-full bg-gray-100 border-8 border-white p-2 shadow-lg;
   }
 
   .sidebar {
-    @apply sticky left-0 top-0 flex h-screen w-fit flex-col justify-between border-r border-gray-200 bg-white pt-8 text-white max-md:hidden sm:p-4 lg:p-6 xl:w-[355px] lg:w-[200px] md:w-[90px] transition-all duration-500 ease-in-out
+    @apply sticky left-0 top-0 flex h-screen w-fit flex-col justify-between border-r border-gray-200 bg-white pt-8 text-white max-md:hidden sm:p-4 lg:p-6 xl:w-[355px] lg:w-[200px] md:w-[90px] transition-all duration-500 ease-in-out;
   }
 
   .sidebar-label {
@@ -106,8 +170,8 @@
   .side-logo {
     @apply 2xl:text-[26px] text-[26px] font-bold text-black max-xl:hidden
   }
-
-  
+ 
+ 
 }
 
 
